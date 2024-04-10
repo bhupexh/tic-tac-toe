@@ -1,5 +1,5 @@
 export const gameBoard = {
-  moves: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
+  moves: ["0" ,"1", "2", "3", "4", "5", "6", "7", "8"],
   printBoard: function() {
     let flag = 0;
     let str = "";
@@ -14,5 +14,6 @@ export const gameBoard = {
         str = "";
       }
     }
+    console.log("\n");
   },
 };
