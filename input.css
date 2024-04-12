@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.square{
+  @apply flex justify-center items-center text-6xl text-red-100 bg-red-200 cursor-pointer;
+}

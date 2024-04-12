@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script type="module" src="script.js" defer></script>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="module" src="displayController.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="bg-red-100 md:grid-cols-2 md:grid h-screen w-screen">
+    <div class="grid justify-center items-center" id="left-side">
+      <div id="player-container">
+        <div class="m-3 border-blue-300 rounded-lg p-4 border-2 bg-blue-300" id="player1">Player1 - X</div>
+        <div class="m-3 border-blue-300 rounded-lg p-4 border-2" id="player2">Player2 - O</div>
+      </div>
+    </div>
+    <div id="right-side">
+      <div id="main-container" class="grid justify-center">
+        <div class="text-5xl mb-12 m-8 text-center" id="name-container">Tic Tac Toe</div>
+        <div id="game-container" class="m-8 grid grid-cols-3 grid-rows-3 h-80 w-80 bg-red-300 gap-1 rounded-md border-4 border-red-300"></div>
+      </div>
+    </div>
+  </body>
 </html>
