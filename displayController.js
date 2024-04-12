@@ -1,10 +1,10 @@
-import { gameBoard } from './gameBoard.js';
-import { game } from './game.js';
+import { game, gameBoard } from './game.js';
 
 let FIRST_TURN = true;
 const fragment = document.createDocumentFragment('div');
 const gameContainer = document.getElementById('game-container');
-// fragment.classList.add('game-co');
+const nameContainer = document.getElementById('name-container');
+document.getElementById('restart').addEventListener('click', game.reset);
 
 export function displayController(){
 
@@ -21,14 +21,27 @@ export function displayController(){
 
 export function handleClick(event){
   if(FIRST_TURN){
+    if(nameContainer.id === "text-div"){
+      nameContainer.id = "name-container";
+    }
     clearGrid();
     FIRST_TURN = false;
   }
   let move = event.target.id;
   let currentToken = game.currentPlayer.token;
+  if(invalidMove(move)){
+    alert("already taken.");
+    return;
+  }
   gameBoard.moves[move] = currentToken;
   event.target.textContent = currentToken;
   game.play();
+}
+
+function invalidMove(move) {
+  if(gameBoard.moves[move] != Number(move) + 1){
+    return true;
+  }
 }
 
 export function clearGrid(){
@@ -44,8 +57,6 @@ export function populateGrid() {
 }
 
 export function displayResult(result){
-  const nameContainer = document.getElementById('name-container');
-  nameContainer.classList = [];
   if(result === "draw"){
     nameContainer.textContent = 'Match Draw';
   }

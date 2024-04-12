@@ -3,9 +3,13 @@
 @tailwind utilities;
 
 .square{
-  @apply flex justify-center items-center text-6xl text-red-100 bg-red-200 cursor-pointer rounded-sm;
+  @apply flex items-center justify-center text-6xl text-red-100 bg-red-200 rounded-sm cursor-pointer;
 }
 
 #text-div{
-  @apply text-5xl pl-8 self-center mb-8 w-full text-blue-950;
+  @apply self-center w-full pl-8 mb-8 text-5xl text-blue-950;
+}
+
+#name-container{
+  @apply self-center w-full pl-8 mb-8 text-5xl;
 }

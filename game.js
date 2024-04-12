@@ -1,6 +1,6 @@
 import { displayController, populateGrid, displayResult } from './displayController.js';
 
-const gameBoard = {
+export const gameBoard = {
   moves: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
 };
 
@@ -38,7 +38,6 @@ export const game = {
     }
     if(this.moveCount > 8){
       displayResult("draw");
-      this.reset();
       return;
     }
     this.changeTurn();
