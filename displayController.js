@@ -32,7 +32,7 @@ export function handleClick(event){
 }
 
 export function clearGrid(){
-  for (const child of fragment.children) {
+  for (const child of gameContainer.children) {
     child.textContent = "";
   }
 }
@@ -42,6 +42,41 @@ export function populateGrid() {
     gameContainer.children[i].textContent = gameBoard.moves[i];
   }
 }
+
+export function displayResult(result){
+  const nameContainer = document.getElementById('name-container');
+  nameContainer.classList = [];
+  if(result === "draw"){
+    nameContainer.textContent = 'Match Draw';
+  }
+  else{
+    nameContainer.textContent = `${result} Won`;
+  }
+  nameContainer.id = "text-div";
+  game.reset();
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  var player1Input = document.getElementById("player1-input");
+  var player2Input = document.getElementById("player2-input");
+
+  player1Input.oninput = function() {
+    handleInputChange("player1");
+  };
+
+  player2Input.oninput = function() {
+    handleInputChange("player2");
+  };
+});
+
+function handleInputChange(player) {
+  var playerElement = document.getElementById(player);
+  var inputValue = document.getElementById(player + "-input").value;
+  playerElement.textContent = inputValue ? `${inputValue} - X` : `Player${player.slice(-1)} - X`;
+}
+
+
+document.getElementById("player1-input").oninput = handleInputChange;
 
 displayController();
 

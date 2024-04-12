@@ -3,5 +3,9 @@
 @tailwind utilities;
 
 .square{
-  @apply flex justify-center items-center text-6xl text-red-100 bg-red-200 cursor-pointer;
+  @apply flex justify-center items-center text-6xl text-red-100 bg-red-200 cursor-pointer rounded-sm;
+}
+
+#text-div{
+  @apply text-5xl pl-8 self-center mb-8 w-full text-blue-950;
 }

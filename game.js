@@ -1,5 +1,8 @@
-import { gameBoard } from './gameBoard.js';
-import { populateGrid } from './displayController.js';
+import { displayController, populateGrid, displayResult } from './displayController.js';
+
+const gameBoard = {
+  moves: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
+};
 
 // Player objects
 const player1 = {
@@ -28,8 +31,13 @@ export const game = {
 
   // Main game loop
   play: function() {
+    this.moveCount++;
     if(this.checkWin(this.currentPlayer)){
-      alert(`${this.result} won`);
+      displayResult(this.result);
+      return;
+    }
+    if(this.moveCount > 8){
+      displayResult("draw");
       this.reset();
       return;
     }
@@ -56,9 +64,11 @@ export const game = {
 
   reset: function() {
     this.currentPlayer = player1;
-    player1.button.classList.toggle("bg-blue-300");
-    player2.button.classList.toggle("bg-blue-300");
+    player1.button.classList.add("bg-blue-300");
+    player2.button.classList.remove("bg-blue-300");
     gameBoard.moves = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+    this.result="";
+    this.moveCount=0;
     populateGrid();
   },
 };
