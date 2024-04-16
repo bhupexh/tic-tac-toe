@@ -22,8 +22,8 @@ export const game = {
   currentPlayer: player1,
   changeTurn: function() {
     this.currentPlayer = (this.currentPlayer === player1) ? player2 : player1;
-    player1.button.classList.toggle("bg-blue-300");
-    player2.button.classList.toggle("bg-blue-300");
+    player1.button.classList.toggle("bg-blue-700");
+    player2.button.classList.toggle("bg-blue-700");
   },
 
   result: "",
@@ -63,8 +63,8 @@ export const game = {
 
   reset: function(){
     this.currentPlayer = player1;
-    player1.button.classList.add("bg-blue-300");
-    player2.button.classList.remove("bg-blue-300");
+    player1.button.classList.add("bg-blue-700");
+    player2.button.classList.remove("bg-blue-700");
     gameBoard.moves = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
     this.result="";
     this.moveCount=0;
