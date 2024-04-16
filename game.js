@@ -1,4 +1,4 @@
-import { displayController, populateGrid, displayResult } from './displayController.js';
+import { makeFirstTurnTrue, populateGrid, displayResult } from './displayController.js';
 
 export const gameBoard = {
   moves: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
@@ -61,13 +61,14 @@ export const game = {
     return false;
   },
 
-  reset: function() {
+  reset: function(){
     this.currentPlayer = player1;
     player1.button.classList.add("bg-blue-300");
     player2.button.classList.remove("bg-blue-300");
     gameBoard.moves = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
     this.result="";
     this.moveCount=0;
+    makeFirstTurnTrue();
     populateGrid();
   },
 };

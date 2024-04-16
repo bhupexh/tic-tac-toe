@@ -1,6 +1,10 @@
 import { game, gameBoard } from './game.js';
 
 let FIRST_TURN = true;
+export function makeFirstTurnTrue() {
+  FIRST_TURN=true;
+}
+
 const fragment = document.createDocumentFragment('div');
 const gameContainer = document.getElementById('game-container');
 const nameContainer = document.getElementById('name-container');
@@ -15,6 +19,7 @@ export function displayController(){
     square.addEventListener('click', handleClick);
     fragment.appendChild(square);
   }
+
   gameContainer.appendChild(fragment);
   populateGrid();
 }
@@ -23,6 +28,7 @@ export function handleClick(event){
   if(FIRST_TURN){
     if(nameContainer.id === "text-div"){
       nameContainer.id = "name-container";
+      nameContainer.textContent = "Tic Tac Toe";
     }
     clearGrid();
     FIRST_TURN = false;
@@ -83,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function handleInputChange(player) {
   var playerElement = document.getElementById(player);
   var inputValue = document.getElementById(player + "-input").value;
-  playerElement.textContent = inputValue ? `${inputValue} - X` : `Player${player.slice(-1)} - X`;
+  playerElement.textContent = inputValue ? `${inputValue} - ${playerElement.textContent.slice(-1)}` : `Player${player.slice(-1)} - ${playerElement.textContent.slice(-1)}`;
 }
 
 

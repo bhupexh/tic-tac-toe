@@ -2,8 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .square{
-  @apply flex items-center justify-center text-6xl text-red-100 bg-red-200 rounded-sm cursor-pointer;
+  @apply flex items-center justify-center text-6xl text-blue-300 bg-blue-900 rounded-sm cursor-pointer;
 }
 
 #text-div{
